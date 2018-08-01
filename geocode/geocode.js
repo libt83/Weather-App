@@ -1,7 +1,10 @@
+var exports = module.exports = {};
+
 const request = require('request');
 
+exports.geocodeAddress = (address) => {
+  var encodedAddress = encodeURIComponent(address);
 
-var geocodeAddress = (encodedURIComponent(encodedAddress)) => {
   request({
       url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
       json: true
@@ -16,4 +19,4 @@ var geocodeAddress = (encodedURIComponent(encodedAddress)) => {
       console.log(`Longitude: ${body.results[0].geometry.location.lng}`);
     }
   });
-});
+};
